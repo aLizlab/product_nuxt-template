@@ -1,0 +1,58 @@
+name: PUSH_CI
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+    # branches:
+    #   - develop
+    #   - 'make/**'
+    #   - 'fix/**'
+    #   - 'fb/**'
+
+jobs:
+  check_push:
+    name: Check Push
+    # description: Check pushed branch doesn't have any error
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node modules
+        id: cache-node
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-${{ env.cache-name }}-
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: npm install
+        # if: steps.cache-node.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: check nuxt
+        run: npm run generate
+
+      - name: check lint
+        run: npm run lint
+
+      - name: check jest
+        run: npm run test
+
+      - name: check storybook
+        run: npm run build:storybook

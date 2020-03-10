@@ -1,0 +1,279 @@
+@import "./variables.scss";
+
+/* section */
+.cont-wrap {
+  position: relative;
+  width: 100%;
+  padding-left: $gutter-sp-wrap;
+  padding-right: $gutter-sp-wrap;
+  z-index: 100;
+
+  /* colをラップするdiv */
+  > .bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  > .col-wrap {
+    position: relative;
+    width: 100%;
+    max-width: $colwrap-wid;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq() {
+      max-width: 100%;
+    }
+
+    &.wrap-top {
+      align-items: flex-start;
+    }
+
+    &.wrap-bottom {
+      align-items: flex-end;
+    }
+
+    &.wrap-middle {
+      align-items: center;
+    }
+
+    &.wrap-left {
+      justify-content: flex-start;
+    }
+
+    &.wrap-right {
+      justify-content: flex-end;
+    }
+
+    &.wrap-center {
+      justify-content: center;
+    }
+
+    &.wrap-between {
+      justify-content: space-between;
+    }
+
+    &.wrap-around {
+      justify-content: space-around;
+    }
+
+    /* col計算 */
+    @for $i from 1 through 11 {
+      > .col-lg-#{$i} {
+        width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+        padding: 0 $gutter-wid / 2;
+
+        @include mq() {
+          padding: 0 $gutter-md-wid / 2 * 1%;
+        }
+      }
+    }
+
+    @for $i from 1 through 11 {
+      > .offset-lg-#{$i} {
+        margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+      }
+    }
+
+    @for $i from 1 through 12 {
+      @include mq(md) {
+        > .col-md-#{$i} {
+          width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+          padding: 0 $gutter-md-wid / 2 * 1%;
+        }
+      }
+    }
+
+    @for $i from 1 through 11 {
+      @include mq(md) {
+        > .offset-md-#{$i} {
+          margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+        }
+      }
+    }
+
+    @for $i from 1 through 12 {
+      @include mq(sm) {
+        > .col-sm-#{$i} {
+          width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+          padding: 0 $gutter-md-wid / 2 * 1%;
+        }
+      }
+    }
+
+    @for $i from 1 through 11 {
+      @include mq(sm) {
+        > .offset-sm-#{$i} {
+          margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+        }
+      }
+    }
+
+    @for $i from 1 through 12 {
+      @include mq(xs) {
+        > .col-xs-#{$i} {
+          width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+          padding: 0 $gutter-md-wid / 2 * 1%;
+        }
+      }
+    }
+
+    @for $i from 1 through 11 {
+      @include mq(xs) {
+        > .offset-xs-#{$i} {
+          margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+        }
+      }
+    }
+
+    > .col-lg-12 {
+      width: 100%;
+      padding: 0 $gutter-wid / 2;
+
+      @include mq() {
+        padding: 0 $gutter-md-wid / 2 * 1%;
+      }
+    }
+
+    /* col計算 幅100%のグリッド */
+    &.max {
+      max-width: 100%;
+
+      @for $i from 1 through 12 {
+        > .col-lg-#{$i} {
+          width: 100 / 12 * $i * 1%;
+          padding: 0;
+        }
+      }
+
+      @for $i from 1 through 12 {
+        @include mq(md) {
+          > .col-md-#{$i} {
+            width: 100 / 12 * $i * 1%;
+            padding: 0;
+          }
+        }
+      }
+
+      @for $i from 1 through 12 {
+        @include mq(sm) {
+          > .col-sm-#{$i} {
+            width: 100 / 12 * $i * 1%;
+            padding: 0;
+          }
+        }
+      }
+
+      @for $i from 1 through 12 {
+        @include mq(xs) {
+          > .col-xs-#{$i} {
+            width: 100 / 12 * $i * 1%;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    /* col計算 nogutter（左右マージンなしグリッド） */
+    &.nogutter {
+      padding: 0 $gutter-md-wid / 2 * 1%;
+
+      @for $i from 1 through 12 {
+        > .col-lg-#{$i} {
+          width: 100 / 12 * $i * 1%;
+          padding: 0;
+        }
+      }
+
+      @for $i from 1 through 12 {
+        @include mq(md) {
+          > .col-md-#{$i} {
+            width: 100 / 12 * $i * 1%;
+            padding: 0;
+          }
+        }
+      }
+
+      @for $i from 1 through 12 {
+        @include mq(sm) {
+          > .col-sm-#{$i} {
+            width: 100 / 12 * $i * 1%;
+            padding: 0;
+          }
+        }
+      }
+
+      @for $i from 1 through 12 {
+        @include mq(xs) {
+          > .col-xs-#{$i} {
+            width: 100 / 12 * $i * 1%;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    /* break */
+    @for $i from 1 through 11 {
+      @include mq(lg) {
+        > .break-lg-#{$i} {
+          margin-right: (12 - $i) * ($col-wid + $gutter-wid);
+        }
+      }
+
+      @include mq(md) {
+        > .break-md-#{$i} {
+          margin-right: (12 - $i) * ($col-md-wid + $gutter-md-wid) * 1%;
+        }
+      }
+
+      @include mq(sm) {
+        > .break-sm-#{$i} {
+          margin-right: (12 - $i) * ($col-md-wid + $gutter-md-wid) * 1%;
+        }
+      }
+
+      @include mq(xs) {
+        > .break-xs-#{$i} {
+          margin-right: (12 - $i) * ($col-md-wid + $gutter-md-wid) * 1%;
+        }
+      }
+    }
+
+    /* offsetのリセット */
+    > .offset-lg-0 {
+      margin-left: 0;
+    }
+
+    @include mq(md) {
+      > .offset-md-0 {
+        margin-left: 0;
+      }
+    }
+
+    @include mq(sm) {
+      > .offset-sm-0 {
+        margin-left: 0;
+      }
+    }
+
+    @include mq(xs) {
+      > .offset-xs-0 {
+        margin-left: 0;
+      }
+    }
+
+    /* フレキシブルな幅でのカラム */
+    > .col-fw {
+      padding: 0 $gutter-wid / 2;
+
+      @include mq() {
+        padding: 0 $gutter-md-wid / 2 * 1%;
+      }
+    }
+  }
+}

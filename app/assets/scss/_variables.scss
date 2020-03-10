@@ -1,0 +1,45 @@
+/* 変数 */
+$content-width: 1200px;
+
+/* グリッド */
+$col-wid: 78px;
+$gutter-wid: 24px;
+
+/* 全体幅（px） */
+$colwrap-wid: $col-wid * 12 + $gutter-wid * 12;
+
+/* カラムの幅（%） */
+$col-md-wid: $col-wid / $colwrap-wid * 100;
+$gutter-md-wid: $gutter-wid / $colwrap-wid * 100;
+
+/* 左右余白（グリッドより優先される） */
+$gutter-sp-wrap: 20px;
+
+/* ブレイクポイントの設定 min~max */
+$mq-breakpoints-min: (
+  'xs': '0px',
+  'sm': '481px',
+  'md': '597px',
+  'lg': '841px',
+) !default;
+
+$mq-breakpoints-max: (
+  'xs': '425px',
+  'sm': '596px',
+  'md': '840px',
+  'lg': '99999px',
+) !default;
+
+/* mq-target:指定してメディアクエリのみに適用 */
+@mixin mq-target($breakpoint: md) {
+  @media screen and (min-width: #{map-get($mq-breakpoints-min, $breakpoint)}) and (max-width: #{map-get($mq-breakpoints-max, $breakpoint)}) {
+    @content;
+  }
+}
+
+/* mq:指定より小さい画面に適用 */
+@mixin mq($breakpoint: md) {
+  @media screen and (max-width: #{map-get($mq-breakpoints-max, $breakpoint)}) {
+    @content;
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "include": [
+    "**/*.ts",
+    "**/*.stories.ts",
+    "**/*.spec.ts",
+    "**/*.vue",
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "types": [
+      "@types/node",
+      "@types/jest",
+      "@nuxt/types"
+    ],
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": [
+        "./app/*"
+      ],
+      "~/*": [
+        "./*"
+      ]
+    },
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom",
+      "es5",
+      "es6"
+    ],
+    "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "noUnusedParameters": true
+  }
+}
