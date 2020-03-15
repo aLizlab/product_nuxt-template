@@ -7,7 +7,7 @@ const nuxtConfig: Configuration = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'aLiz Nuxt's Template' || process.env.npm_package_name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -25,18 +25,18 @@ const nuxtConfig: Configuration = {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Palanquin:400,500,600,700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap',
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,600,700&display=swap&subset=japanese',
+        href: 'https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700;800&display=swap',
       },
     ],
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#000' },
   /*
    ** Global CSS
    */
@@ -60,7 +60,7 @@ const nuxtConfig: Configuration = {
 
   router: {
     middleware: [
-      'checkLogin',
+      // 'checkLogin',
     ],
   },
   /*

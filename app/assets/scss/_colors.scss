@@ -1,19 +1,48 @@
-$color-font-main: #003d21;
-$color-font-gray-dark: #888;
-$color-font-gray: #c4c4c4;
-$color-font-white: #fff;
-$color-font-black: #000;
+// fontのカラー
+$color-font-default: #000;
+$color-font-gray: rgba(#000, 0.56);
+$color-font-tag: #fff;
 
-$color-ui-main: #003d21;
-$color-ui-sub: #adccbd;
-$color-ui-gray: #c4c4c4;
-$color-ui-white: #fff;
-$color-ui-black: #000;
+// iconのカラー
+$color-icon-default: #000;
+$color-icon-active: #fff;
 
-$color-bg-default: #f8f8f8;
-$color-bg-sub: #c0dbce;
-$color-bg-white: #fff;
-$color-bg-gray: #ddd;
+// bgのカラー
+$color-bg-default: #fff;
+$color-bg-code: rgba(#000, 0.08);
+$color-bg-tag: #000;
 
-$color-stroke-gray: #e5e5e5;
-$color-stroke-white: #fff;
+// strokeのカラー
+$color-button-label-default: #000;
+$color-button-label-active: #fff;
+$color-button-bg-default: #fff;
+$color-button-bg-active: #000;
+
+// strokeのカラー
+$color-stroke-default: rgba(#000, 0.16);
+
+// ダークモードの時のカラーの変数
+@media (prefers-color-scheme: dark) {
+  // fontのカラー
+  $color-font-default: #fff;
+  $color-font-gray: rgba(#fff, 0.56);
+  $color-font-tag: #000;
+
+  // iconのカラー
+  $color-icon-default: #fff;
+  $color-icon-active: #000;
+
+  // bgのカラー
+  $color-bg-default: #000;
+  $color-bg-code: rgba(#fff, 0.08);
+  $color-bg-tag: #fff;
+
+  // strokeのカラー
+  $color-button-label-default: #fff;
+  $color-button-label-active: #000;
+  $color-button-bg-default: #000;
+  $color-button-bg-active: #fff;
+
+  // strokeのカラー
+  $color-stroke-default: rgba(#fff, 0.16);
+}

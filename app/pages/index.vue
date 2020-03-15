@@ -1,6 +1,6 @@
 <template>
   <div class="page page-index">
-    <p>AAAAAAAA</p>
+    <h1>aLiz Nuxt's Template</h1>
   </div>
 </template>
 
@@ -18,5 +18,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-  .page-index {}
+  .page-index {
+  }
 </style>
