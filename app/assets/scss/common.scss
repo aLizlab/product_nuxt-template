@@ -2,6 +2,22 @@ html {
   font-family: 'Open Sans', 'M PLUS 1p', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
   font-size: 14px;
   line-height: 1.5em;
-  color: $color-font-default;
-  background-color: $color-bg-default;
+  color: var(--color-font-default);
+  background-color: var(--color-bg-default);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+input,
+textarea,
+button,
+select {
+  color: var(--color-font-default);
+  line-height: 1.5em;
 }
