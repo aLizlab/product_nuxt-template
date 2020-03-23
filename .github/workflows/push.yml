@@ -51,8 +51,8 @@ jobs:
       - name: check lint
         run: npm run lint
 
-      # - name: check jest
-      #   run: npm run test
+      - name: check jest
+        run: npm run test
 
       - name: check storybook
         run: npm run build:storybook
