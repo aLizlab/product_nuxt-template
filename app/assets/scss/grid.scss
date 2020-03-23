@@ -62,58 +62,31 @@
     }
 
     /* col計算 */
-    @for $i from 1 through 11 {
+    @for $i from 1 through 12 {
+      > .col-#{$i} {
+        width: $i * $col-wid + $i * $gutter-wid;
+        padding: 0 $gutter-wid / 2;
+      }
+
       > .col-lg-#{$i} {
         width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
         padding: 0 $gutter-wid / 2;
-
-        @include mq() {
-          padding: 0 $gutter-md-wid / 2 * 1%;
-        }
       }
-    }
 
-    @for $i from 1 through 11 {
-      > .offset-lg-#{$i} {
-        margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
-      }
-    }
-
-    @for $i from 1 through 12 {
       @include mq(md) {
         > .col-md-#{$i} {
           width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
           padding: 0 $gutter-md-wid / 2 * 1%;
         }
       }
-    }
 
-    @for $i from 1 through 11 {
-      @include mq(md) {
-        > .offset-md-#{$i} {
-          margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
-        }
-      }
-    }
-
-    @for $i from 1 through 12 {
       @include mq(sm) {
         > .col-sm-#{$i} {
           width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
           padding: 0 $gutter-md-wid / 2 * 1%;
         }
       }
-    }
 
-    @for $i from 1 through 11 {
-      @include mq(sm) {
-        > .offset-sm-#{$i} {
-          margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
-        }
-      }
-    }
-
-    @for $i from 1 through 12 {
       @include mq(xs) {
         > .col-xs-#{$i} {
           width: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
@@ -122,7 +95,33 @@
       }
     }
 
-    @for $i from 1 through 11 {
+    > .col-lg-12 {
+      width: 100%;
+      padding: 0 $gutter-wid / 2;
+    }
+
+    /* offsetの計算 */
+    @for $i from 1 through 12 {
+      > .offset-#{$i} {
+        margin-left: $i * $col-wid + $i * $gutter-wid;
+      }
+
+      > .offset-lg-#{$i} {
+        margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+      }
+
+      @include mq(md) {
+        > .offset-md-#{$i} {
+          margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+        }
+      }
+
+      @include mq(sm) {
+        > .offset-sm-#{$i} {
+          margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
+        }
+      }
+
       @include mq(xs) {
         > .offset-xs-#{$i} {
           margin-left: $i * $col-md-wid + $i * $gutter-md-wid * 1%;
@@ -130,12 +129,26 @@
       }
     }
 
-    > .col-lg-12 {
-      width: 100%;
-      padding: 0 $gutter-wid / 2;
+    /* offsetのリセット */
+    > .offset-lg-0 {
+      margin-left: 0;
+    }
 
-      @include mq() {
-        padding: 0 $gutter-md-wid / 2 * 1%;
+    @include mq(md) {
+      > .offset-md-0 {
+        margin-left: 0;
+      }
+    }
+
+    @include mq(sm) {
+      > .offset-sm-0 {
+        margin-left: 0;
+      }
+    }
+
+    @include mq(xs) {
+      > .offset-xs-0 {
+        margin-left: 0;
       }
     }
 
@@ -148,27 +161,21 @@
           width: 100 / 12 * $i * 1%;
           padding: 0;
         }
-      }
 
-      @for $i from 1 through 12 {
         @include mq(md) {
           > .col-md-#{$i} {
             width: 100 / 12 * $i * 1%;
             padding: 0;
           }
         }
-      }
 
-      @for $i from 1 through 12 {
         @include mq(sm) {
           > .col-sm-#{$i} {
             width: 100 / 12 * $i * 1%;
             padding: 0;
           }
         }
-      }
 
-      @for $i from 1 through 12 {
         @include mq(xs) {
           > .col-xs-#{$i} {
             width: 100 / 12 * $i * 1%;
@@ -187,27 +194,21 @@
           width: 100 / 12 * $i * 1%;
           padding: 0;
         }
-      }
 
-      @for $i from 1 through 12 {
         @include mq(md) {
           > .col-md-#{$i} {
             width: 100 / 12 * $i * 1%;
             padding: 0;
           }
         }
-      }
 
-      @for $i from 1 through 12 {
         @include mq(sm) {
           > .col-sm-#{$i} {
             width: 100 / 12 * $i * 1%;
             padding: 0;
           }
         }
-      }
 
-      @for $i from 1 through 12 {
         @include mq(xs) {
           > .col-xs-#{$i} {
             width: 100 / 12 * $i * 1%;
@@ -241,29 +242,6 @@
         > .break-xs-#{$i} {
           margin-right: (12 - $i) * ($col-md-wid + $gutter-md-wid) * 1%;
         }
-      }
-    }
-
-    /* offsetのリセット */
-    > .offset-lg-0 {
-      margin-left: 0;
-    }
-
-    @include mq(md) {
-      > .offset-md-0 {
-        margin-left: 0;
-      }
-    }
-
-    @include mq(sm) {
-      > .offset-sm-0 {
-        margin-left: 0;
-      }
-    }
-
-    @include mq(xs) {
-      > .offset-xs-0 {
-        margin-left: 0;
       }
     }
 

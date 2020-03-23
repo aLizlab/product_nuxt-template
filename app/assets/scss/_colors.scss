@@ -1,7 +1,7 @@
 :root {
   // fontのカラー
   --color-font-default: #000;
-  --color-font-gray: rgba(#000, 0.56);
+  --color-font-gray: rgba(00, 00, 00, 0.56);
   --color-font-tag: #fff;
 
   // iconのカラー
@@ -10,7 +10,7 @@
 
   // bgのカラー
   --color-bg-default: #fff;
-  --color-bg-code: rgba(#000, 0.08);
+  --color-bg-code: rgba(00, 00, 00, 0.08);
   --color-bg-tag: #000;
 
   // buttonのカラー
@@ -26,7 +26,7 @@
   @media (prefers-color-scheme: dark) {
     // fontのカラー
     --color-font-default: #fff;
-    --color-font-gray: rgba(#fff, 0.56);
+    --color-font-gray: rgba(255, 255, 255, 0.56);
     --color-font-tag: #000;
 
     // iconのカラー
@@ -35,7 +35,7 @@
 
     // bgのカラー
     --color-bg-default: #000;
-    --color-bg-code: rgba(#fff, 0.08);
+    --color-bg-code: rgba(255, 255, 255, 0.08);
     --color-bg-tag: #fff;
 
     // buttonのカラー
