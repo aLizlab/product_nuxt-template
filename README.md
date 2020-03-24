@@ -16,13 +16,20 @@
 改善点や要望などは、ぜひ **Issue** を作ってください。
 なるはやで対応します！
 
-簡単に使えるパッケージ
+
+## Supported
+
+> 簡単に使える機能
+
 - Nuxt
 - Firebase
 - Storybook
 - Jest
 - Dayjs
 - Axios
+- GitHub Actions
+- GitHub Issue Templates
+- GitHub PR Templates
 
 
 ## Commands
