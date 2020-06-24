@@ -24,6 +24,7 @@
 - Nuxt
 - Firebase
 - Storybook
+- ES Lint
 - Jest
 - Dayjs
 - Axios
