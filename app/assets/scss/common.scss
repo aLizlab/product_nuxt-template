@@ -1,11 +1,14 @@
 html {
-  font-family: 'Open Sans', 'M PLUS 1p', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
-  font-size: 14px;
-  line-height: 1.5em;
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 1rem;
+  line-height: 2em;
   color: var(--color-font-default);
   background-color: var(--color-bg-default);
 }
 
+//  --------------------
+//  Font
+//  --------------------
 h1,
 h2,
 h3,
@@ -17,7 +20,128 @@ label,
 input,
 textarea,
 button,
-select {
+select,
+a {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 1rem;
+  line-height: 2em;
   color: var(--color-font-default);
-  line-height: 1.5em;
+}
+
+//  --------------------
+//  Items
+//  --------------------
+//
+// Section
+header,
+footer,
+section,
+.section {
+  position: relative;
+  width: 100%;
+  padding: 0 40px;
+
+  @include mq(md) {
+    padding: 0 20px;
+  }
+
+  > .bg {
+    position: absolute;
+    z-index: -1;
+
+    &.bg-cover {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.bg-center {
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      width: 100%;
+      height: 100%;
+    }
+
+    &.bg-hidden {
+      overflow: hidden;
+    }
+  }
+
+  > .container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    @include mq(md) {
+      max-width: 800px;
+    }
+
+    @include mq(sm) {
+      max-width: 480px;
+    }
+
+    &.wide {
+      max-width: none;
+    }
+
+    &.narrow {
+      max-width: 1118px;
+
+      @include mq(md) {
+        max-width: 760px;
+      }
+
+      @include mq(sm) {
+        max-width: 480px;
+      }
+    }
+  }
+}
+
+// Image
+svg,
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.none {
+  display: none !important;
+}
+
+//  --------------------
+//  Animation
+//  --------------------
+//
+// Scroll
+.js-scroll {
+
+  &.js-scroll-active {}
+}
+
+// Page
+.page-leave-active {
+  transition: opacity 0.64s, filter 0.4s, transform 0.24s 0.08s;
+}
+
+.page-enter-active {
+  transition: opacity 0.64s, filter 0.4s, transform 0.24s 0.08s;
+}
+
+.page-enter-to,
+.page-leave {
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+}
+
+.page-enter,
+.page-leave-to {
+  transform: translateY(16px);
+  filter: blur(8px);
+  opacity: 0;
 }

@@ -1,8 +1,12 @@
 <template>
   <div class="layout layout-default">
+    <Svgs />
+
     <main class="content">
       <nuxt />
     </main>
+
+    <ModalRouter v-show="$route.query.modal" />
   </div>
 </template>
 
@@ -11,6 +15,10 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'LayoutDefault',
+  components: {
+    Svgs: () => import('@/components/Svgs.vue'),
+    ModalRouter: () => import('@/components/ModalRouter.vue'),
+  },
 })
 </script>
 
@@ -34,6 +42,10 @@ export default Vue.extend({
       position: absolute;
       left: 0;
       bottom: 0;
+    }
+
+    > .modal {
+      z-index: 8000;
     }
   }
 </style>
