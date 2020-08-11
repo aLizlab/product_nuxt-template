@@ -21,11 +21,32 @@ input,
 textarea,
 button,
 select,
-a {
+a,
+li {
   font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
   font-size: 1rem;
   line-height: 2em;
   color: var(--color-font-default);
+
+  &.semi-bold {
+    font-weight: 600;
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+
+  &.gray {
+    color: var(--color-font-gray);
+  }
+
+  &.justify {
+    text-align: justify;
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
 }
 
 //  --------------------
@@ -60,8 +81,6 @@ section,
       top: 50%;
       right: 50%;
       transform: translate(50%, -50%);
-      width: 100%;
-      height: 100%;
     }
 
     &.bg-hidden {
@@ -83,34 +102,31 @@ section,
       max-width: 480px;
     }
 
-    &.wide {
+    &.container-maxWidth {
       max-width: none;
     }
 
-    &.narrow {
+    &.container-narrow {
       max-width: 1118px;
-
-      @include mq(md) {
-        max-width: 760px;
-      }
-
-      @include mq(sm) {
-        max-width: 480px;
-      }
     }
   }
 }
 
 // Image
-svg,
 img {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.none {
-  display: none !important;
+//  --------------------
+//  Hover
+//  --------------------
+.hover {
+  &:hover {
+    //color: var(--color-font-active) !important;
+    //fill: var(--color-icon-active) !important;
+  }
 }
 
 //  --------------------
@@ -119,7 +135,6 @@ img {
 //
 // Scroll
 .js-scroll {
-
   &.js-scroll-active {}
 }
 
@@ -144,4 +159,66 @@ img {
   transform: translateY(16px);
   filter: blur(8px);
   opacity: 0;
+}
+
+//  --------------------
+//  Options
+//  --------------------
+//
+// Hide
+.none {
+  display: none !important;
+}
+
+.event-none {
+  pointer-events: none;
+}
+
+// Hide - Responsive
+.is-md {
+  display: none;
+
+  @include mq(md) {
+    display: inherit;
+  }
+}
+
+.is-no-md {
+  display: inherit;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.is-sm {
+  display: none;
+
+  @include mq(sm) {
+    display: block;
+  }
+}
+
+.is-no-sm {
+  display: block;
+
+  @include mq(sm) {
+    display: none;
+  }
+}
+
+.is-xs {
+  display: none;
+
+  @include mq(xs) {
+    display: block;
+  }
+}
+
+.is-no-xs {
+  display: block;
+
+  @include mq(xs) {
+    display: none;
+  }
 }
