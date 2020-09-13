@@ -1,22 +1,22 @@
 <template>
   <div class="page page-index">
-    <p>AAAAAAAA</p>
+    <h1>aLiz Nuxt's Template</h1>
+    <ButtonDefault>aLiz</ButtonDefault>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-// import { MemberDetailType } from '@/define/models/Member'
-
 export default Vue.extend({
   name: 'PageTop',
   components: {
-    // SectionTopHero: () => import('@/components/templates/sections/SectionTopHero.vue'),
+    ButtonDefault: () => import('@/components/atoms/buttons/ButtonDefault.vue'),
   },
 })
 </script>
 
 <style lang="scss" scoped>
-  .page-index {}
+  .page-index {
+  }
 </style>

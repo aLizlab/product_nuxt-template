@@ -1,0 +1,30 @@
+import { Meta, Story, Preview, Props, Source } from '@storybook/addon-docs/blocks'
+
+import ButtonDefault from './ButtonDefault.vue'
+
+<Meta
+  title='atoms/buttons/ButtonDefault'
+  component={ ButtonDefault }
+/>
+
+# ButtonDefault
+
+何の変哲もない、ただのボタン。
+
+<Source code={`import ButtonDefault from '@/atoms/buttons/ButtonDefault.vue'`} />
+
+<Preview withSource="open">
+  <Story
+    id="button-default_basic"
+    name="basic"
+  >
+  {{
+    components: { ButtonDefault },
+    template: `<ButtonDefault>
+      Button Label
+    </ButtonDefault>`,
+  }}
+  </Story>
+</Preview>
+
+<Props of="." />

@@ -41,8 +41,8 @@ jobs:
       - name: check lint
         run: npm run lint
 
-      - name: check jest
-        run: npm run test
+#      - name: check jest
+#        run: npm run test
 
       - name: check nuxt
         run: npm run generate

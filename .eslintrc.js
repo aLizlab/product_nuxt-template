@@ -30,21 +30,21 @@ module.exports = {
     ],
 
     // prettier handles these rules
-    'semi': [2, 'never'],
+    semi: [2, 'never'],
     'function-paren-newline': ['off'],
     'comma-dangle': [2, 'always-multiline'],
     'object-curly-newline': ['off'],
     'max-len': ['error', {
       code: 120,
-      ignoreUrls: true
+      ignoreUrls: true,
     }],
     'no-console': [
       'error',
       {
-        allow: ['warn', 'error']
-      }
+        allow: ['warn', 'error'],
+      },
     ],
-    "@typescript-eslint/no-unused-vars": "error",
+    '@typescript-eslint/no-unused-vars': 'error',
     // vue
     'vue-types/require-default-prop': ['off'],
     'vue/require-default-prop': ['off'],

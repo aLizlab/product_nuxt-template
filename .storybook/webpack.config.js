@@ -5,6 +5,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.story\.ts$/,
+        loaders: [
+          require.resolve('@storybook/source-loader'),
+        ],
+        enforce: 'pre',
+      },
+      {
         test: /\.(ts|tsx)$/,
         use: [
           {

@@ -1,14 +1,14 @@
 html {
-  font-family: 'Palanquin', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
-  font-size: 16px;
-  line-height: 1.5em;
-  color: $color-font-main;
-  background-color: $color-bg-default;
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 1rem;
+  line-height: 2em;
+  color: var(--color-font-default);
+  background-color: var(--color-bg-default);
 }
 
-//body {
-//}
-
+//  --------------------
+//  Font
+//  --------------------
 h1,
 h2,
 h3,
@@ -20,95 +20,205 @@ label,
 input,
 textarea,
 button,
-select {
-  line-height: 1.5em;
+select,
+a,
+li {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Helvetica, '游ゴシック  Medium', meiryo, sans-serif;
+  font-size: 1rem;
+  line-height: 2em;
+  color: var(--color-font-default);
+
+  &.semi-bold {
+    font-weight: 600;
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+
+  &.gray {
+    color: var(--color-font-gray);
+  }
+
+  &.justify {
+    text-align: justify;
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
 }
 
-h1 {
-  font-weight: 500;
-  font-size: 1.125rem;
+//  --------------------
+//  Items
+//  --------------------
+//
+// Section
+header,
+footer,
+section,
+.section {
+  position: relative;
+  width: 100%;
+  padding: 0 40px;
+
+  @include mq(md) {
+    padding: 0 20px;
+  }
+
+  > .bg {
+    position: absolute;
+    z-index: -1;
+
+    &.bg-cover {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.bg-center {
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+
+    &.bg-hidden {
+      overflow: hidden;
+    }
+  }
+
+  > .container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    @include mq(md) {
+      max-width: 800px;
+    }
+
+    @include mq(sm) {
+      max-width: 480px;
+    }
+
+    &.container-maxWidth {
+      max-width: none;
+    }
+
+    &.container-narrow {
+      max-width: 1118px;
+    }
+  }
+}
+
+// Image
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+//  --------------------
+//  Hover
+//  --------------------
+.hover {
+  &:hover {
+    //color: var(--color-font-active) !important;
+    //fill: var(--color-icon-active) !important;
+  }
+}
+
+//  --------------------
+//  Animation
+//  --------------------
+//
+// Scroll
+.js-scroll {
+  &.js-scroll-active {}
+}
+
+// Page
+.page-leave-active {
+  transition: opacity 0.64s, filter 0.4s, transform 0.24s 0.08s;
+}
+
+.page-enter-active {
+  transition: opacity 0.64s, filter 0.4s, transform 0.24s 0.08s;
+}
+
+.page-enter-to,
+.page-leave {
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+}
+
+.page-enter,
+.page-leave-to {
+  transform: translateY(16px);
+  filter: blur(8px);
+  opacity: 0;
+}
+
+//  --------------------
+//  Options
+//  --------------------
+//
+// Hide
+.none {
+  display: none !important;
+}
+
+.event-none {
+  pointer-events: none;
+}
+
+// Hide - Responsive
+.is-md {
+  display: none;
+
+  @include mq(md) {
+    display: inherit;
+  }
+}
+
+.is-no-md {
+  display: inherit;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.is-sm {
+  display: none;
 
   @include mq(sm) {
-    font-size: 0.875rem;
+    display: block;
   }
 }
 
-h2 {
-  font-weight: 700;
-  font-size: 4rem;
-  letter-spacing: 0.04em;
+.is-no-sm {
+  display: block;
 
   @include mq(sm) {
-    font-size: 2rem;
+    display: none;
   }
 }
 
-h3 {
-  font-weight: 500;
-  font-size: 1.125rem;
-  color: $color-font-black;
-}
+.is-xs {
+  display: none;
 
-//h4 {}
-
-//h5 {}
-
-//h6 {}
-
-p {
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.6em;
-
-  @include mq(sm) {
-    font-size: 0.75rem;
+  @include mq(xs) {
+    display: block;
   }
 }
 
-label {
-  font-weight: 500;
-  font-size: 0.875rem;
-  color: $color-font-black;
-}
+.is-no-xs {
+  display: block;
 
-input {
-  font-weight: 500;
-  font-size: 0.875rem;
-  color: $color-font-black;
-
-  &::placeholder {
-    color: $color-font-gray;
+  @include mq(xs) {
+    display: none;
   }
 }
-
-//textarea {
-//
-//  &::placeholder {
-//  }
-//}
-
-//select {}
-
-button {
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: $color-ui-white;
-  background-color: transparent;
-  border: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-//.modal {
-//  h3 {}
-//
-//  p {}
-//}
-
-//.post {
-//  h2 {}
-//
-//  p {}
-//}
