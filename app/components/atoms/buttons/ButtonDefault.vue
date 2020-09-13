@@ -22,7 +22,4 @@ export default Vue.extend({})
 </script>
 
 <style lang="scss" scoped>
-  .button-default {
-    color: black;
-  }
 </style>
