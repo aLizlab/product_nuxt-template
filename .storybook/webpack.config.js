@@ -38,16 +38,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.scss$/,
-        loaders: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            // options: {
-            //   includePaths: ['node_modules'],
-            // },
-          },
+        test: /\.(scss|sass)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader', },
           {
             loader: 'sass-resources-loader',
             options: {
@@ -60,11 +55,34 @@ module.exports = {
             }
           }
         ],
+        // loaders: [
+        //   'style-loader',
+        //   'css-loader',
+        //   {
+        //     loader: 'sass-loader',
+        //     // options: {
+        //     //   includePaths: ['node_modules'],
+        //     // },
+        //   },
+        //   {
+        //     loader: 'sass-resources-loader',
+        //     options: {
+        //       resources: [
+        //         path.resolve(__dirname, './../app/assets/scss/reset.scss'),
+        //         path.resolve(__dirname, './../app/assets/scss/app.scss'),
+        //         path.resolve(__dirname, './../app/assets/scss/grid.scss'),
+        //         path.resolve(__dirname, './../app/assets/scss/common.scss'),
+        //       ],
+        //     }
+        //   }
+        // ],
       },
       {
         test: /\.vue/,
         loader: 'vue-docgen-loader',
-        enforce: 'post'
+        enforce: 'post',
+        // loader: require.resolve('vue-loader'),
+        // include: path.resolve(__dirname, '../'),
       },
     ],
   },
