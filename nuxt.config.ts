@@ -1,4 +1,3 @@
-// @ts-ignore
 import { Configuration } from '@nuxt/types'
 
 const nuxtConfig: Configuration = {
