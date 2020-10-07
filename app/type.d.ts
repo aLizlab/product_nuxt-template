@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import { Route } from 'vue-router'
 import { Store } from 'vuex'
 import { MetaInfo } from 'vue-meta'
