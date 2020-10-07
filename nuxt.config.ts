@@ -117,10 +117,13 @@ const nuxtConfig: Configuration = {
           [
             require.resolve('@nuxt/babel-preset-app'),
             {
-              targets: isServer
+              // targets: isServer
+              //   ? { node: 'current' }
+              //   : { browsers: ['last 2 versions'], ie: 11 },
+              buildTarget: isServer
                 ? { node: 'current' }
                 : { browsers: ['last 2 versions'], ie: 11 },
-              // corejs: { version: 2 },
+              corejs: { version: 3 },
             },
           ],
         ]
