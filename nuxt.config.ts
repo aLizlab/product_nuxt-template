@@ -2,7 +2,7 @@ import { Configuration } from '@nuxt/types'
 
 const nuxtConfig: Configuration = {
   srcDir: 'app/',
-  ssr: true,
+  mode: 'spa',
   /*
    ** Headers of the page
    */
